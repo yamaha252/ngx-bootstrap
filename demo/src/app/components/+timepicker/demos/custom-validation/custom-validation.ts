@@ -7,8 +7,4 @@ import { FormControl } from '@angular/forms';
 })
 export class DemoTimepickerCustomValidationComponent {
   public myTime: Date;
-
-  public ctrl = new FormControl('', (control: FormControl) => {
-    const value = control.value;
-    console.log('control', control);
 }

@@ -1,14 +1,35 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ChangeDetectionStrategy } from '@angular/core';
 
 import { TimepickerComponent } from '../../timepicker/timepicker.component';
 import { TimepickerConfig } from '../../timepicker/timepicker.config';
 import { TimepickerActions } from '../../timepicker/reducer/timepicker.actions';
-import { Data } from '@angular/router';
 
-fdescribe('Component: timepicker', () => {
+/*function createComponent(htmlTemplate, dtc?: string): ComponentFixture<TimepickerComponent> {
+  switch (dtc) {
+    case 'OnPush':
+      TestBed.overrideComponent(TimepickerComponent, {
+        set: {
+          template: htmlTemplate,
+          changeDetection: ChangeDetectionStrategy.OnPush
+        }
+      });
+      break;
+    default:
+      TestBed.overrideComponent(TimepickerComponent, {
+        set: {template: htmlTemplate}
+      });
+  }
+
+  const fixture = TestBed.createComponent(TimepickerComponent);
+  fixture.detectChanges();
+  return fixture as ComponentFixture<TimepickerComponent>;
+}*/
+
+describe('Component: timepicker', () => {
   let fixture: ComponentFixture<TimepickerComponent>;
   let context: TimepickerComponent;
-  let nativeEl: any;
+  let nativeElement: any;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -21,11 +42,75 @@ fdescribe('Component: timepicker', () => {
 
     fixture = TestBed.createComponent(TimepickerComponent);
     context = fixture.componentInstance;
-    nativeEl = fixture.nativeElement;
+    nativeElement = fixture.nativeElement;
     fixture.detectChanges();
   });
 
-  it('should prevDef', () => {
+  // validate input fields
+  it('should validate the data in the minutes input', () => {});
+  it('should validate the data in the seconds input', () => {});
+  it('should change the active input field after enter click', () => {});
+  it('should auto complete input field after enter click if enter half value', () => {});
+  it('should auto clean input field after enter invalid value', () => {});
+  it('should display error input field after enter invalid value', () => {});
+
+  // validate input fields with property of 'showMeridian'
+  it('should default state showMeridian display AM/PM button', () => {});
+  it('should display time at time format 12h', () => {});
+  it('should validate the data in the hours input at time format 12h', () => {});
+  it('should change time period after click on AM/PM button', () => {});
+  it('should not display AM/PM button if showMeridian switch off', () => {});
+  it('should display time at time format 24h', () => {});
+  it('should validate the data in the hours input at time format 24h', () => {});
+
+  // validate input fields with property of 'max'
+  it('should not value of the input field exceed the specified value', () => {});
+  it('should change the input field to specified value if it exceed the specified value', () => {});
+
+  // validate input fields with property of 'min'
+  it('should not value of the input field less the specified value', () => {});
+  it('should change the input field to specified value if it less the specified value', () => {});
+
+  // display seconds fields with property of 'showSeconds'
+  it('should default state showSeconds is not display seconds field', () => {});
+  it('should display seconds field if showMeridian switch on', () => {});
+
+  // display seconds fields with property of 'readonlyInput'
+  it('should be possible to enter values', () => {});
+  it('should be display is time change buttons', () => {});
+  it('should be impossible to enter values', () => {});
+  it('should be not display is time change buttons', () => {});
+
+  // display seconds fields with property of 'hourStep'
+  it('should add to the hour input field value, hourStep value', () => {});
+  it('should subtract to the hour input field value, hourStep value', () => {});
+
+  // display seconds fields with property of 'minuteStep'
+  it('should add to the minute input field value, minuteStep value', () => {});
+  it('should subtract to the minute input field value, minuteStep value', () => {});
+
+  // default configuration
+  it('should be empty input fields', () => {});
+  it('should set time in a input field after click on input change button', () => {});
+
+  // hide change button
+  it('should display change button in default state', () => {});
+  it('should hide change button', () => {});
+
+  // validate 'mousewheel'
+  it('should can change input value with the mouse wheel', () => {});
+  it('should can not change input value with the mouse wheel', () => {});
+
+  // validate 'arrowkeys'
+  it('should can change input value with the arrow keys', () => {});
+  it('should can not change input value with the arrow keys', () => {});
+
+  // custom validate
+  it('should leave the input fields not specified', () => {});
+  it('should valid value in input fields', () => {});
+  it('should invalid value in input fields', () => {});
+
+/*it('should prevDef', () => {
     context.prevDef(new Event('customWheel'));
   });
 
@@ -171,5 +256,5 @@ fdescribe('Component: timepicker', () => {
   it('should showMeridian change', () => {
     context.showMeridian = false;
     (context as any)._renderTime('-1');
-  });
+  });*/
 });
